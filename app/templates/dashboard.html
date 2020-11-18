@@ -1,0 +1,63 @@
+{% extends 'base.html'%}
+{% block styles%}
+    {{super()}}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/incident.css')}}">
+{% endblock%}
+<style>
+    td{
+        color: white;
+    }
+</style>
+
+{%block content%}
+<div class="container">
+    <div class="flex-container db-card-row">
+        <div class="db-card">
+            <h3 style="font-size: x-large;">Received</h3>
+            <span style="font-size: x-large;">4</span>
+        </div>
+        <div class="db-card">
+            <h3 style="font-size: x-large;">Under Investigation</h3>
+            <span style="font-size: x-large;">1</span>
+        </div>
+        <div class="db-card">
+            <h3 style="font-size: x-large;">Resolved</h3>
+            <span style="font-size: x-large;">1</span>
+        </div>
+        <div class="db-card">
+            <h3 style="font-size: x-large;">Rejected</h3>
+            <span style="font-size: x-large;">0</span>
+        </div>
+    </div>
+    <div class="db-content table bg-thematic-dark">
+        <table class="main-table">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Title</th>
+                    <th>Geolocation</th>
+                    <th>Status</th>
+                    <th>View Case</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for case in cases %}
+            <tr>
+                <p>
+                <td style="color: white;">{{case.category}}</td>
+                <td style="color: white;">{{case.title}}</td>
+                <td style="color: white;">{{case.geolocation}}</td>
+                <td style="color: white;">{{case.status}}</td>
+                <td style="color: white;">
+                    <a href="/post/{{case.id}}">
+                        <button type="button" class="btn btn-primary">View</button>
+                        </a> 
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{%endblock%}
