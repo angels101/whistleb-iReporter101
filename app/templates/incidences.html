@@ -1,0 +1,70 @@
+{% extends 'base.html'%}
+{% block styles%}
+    {{super()}}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/incident.css')}}">
+{% endblock%}
+{%block content%}
+<div class="container">
+    <div class="flex-container add-button">
+        <a href="{{url_for('main.index')}}">
+            <button class="form-button">Add an Incident</button>
+        </a>
+    </div>
+    <div class="db-content table bg-thematic-dark">
+        <table class="main-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                    <th>Media</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>1</td>
+                <td>Bribing at Salgaa</td>
+                <td>Red Flag</td>
+                <td>A police woman was taking money from a matatu at Salgaa road block</td>
+                <td>Great North RD, Nakuru</td>
+                <td>draft</td>
+                <td>-</td>
+                <td><i class="fas fa-trash"></i></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Countless pothole</td>
+                <td>Intervention</td>
+                <td>Countless potholes on Mwiki road causing a lot of traffic</td>
+                <td>Mwiki, Kiambu</td>
+                <td>Under Investigation</td>
+                <td>True</td>
+                <td><i class="fas fa-trash"></i></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Nepotism</td>
+                <td>Red flag</td>
+                <td>Bribing at Engineer Birth Registration center</td>
+                <td>Engineer, Nyandarua</td>
+                <td>Resolved</td>
+                <td>True</td>
+                <td><i class="fas fa-trash"></i></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Fallen Bridge</td>
+                <td>Intervention</td>
+                <td>A fallen Bridge at Muhoroni cutting transport</td>
+                <td>Muhoroni, Kisumu</td>
+                <td>Rejected</td>
+                <td>True</td>
+                <td><i class="fas fa-trash"></i></td>
+            </tr>
+        </table>
+    </div>
+</div>
+{% endblock%}
